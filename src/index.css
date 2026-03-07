@@ -1,0 +1,8 @@
+@import "tailwindcss";
+
+@layer utilities {
+  .bg-cactus-pattern {
+    background-image: radial-gradient(circle at 10px 10px, #0A5F3C 2px, transparent 2px);
+    background-size: 30px 30px;
+  }
+}
