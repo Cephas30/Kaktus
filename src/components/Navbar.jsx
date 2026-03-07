@@ -7,8 +7,8 @@ const Navbar = () => {
   const [servicesDropdownOpen, setServicesDropdownOpen] = useState(false);
   const location = useLocation();
   const dropdownRef = useRef(null);
+  const mobileMenuRef = useRef(null);
 
-  // Set active link based on current path
   const getActiveLink = () => {
     const path = location.pathname;
     if (path === '/') return 'Home';
@@ -38,9 +38,7 @@ const Navbar = () => {
   ];
 
   useEffect(() => {
-    const handleScroll = () => {
-      setIsScrolled(window.scrollY > 50);
-    };
+    const handleScroll = () => setIsScrolled(window.scrollY > 50);
     window.addEventListener('scroll', handleScroll);
     return () => window.removeEventListener('scroll', handleScroll);
   }, []);
@@ -51,9 +49,11 @@ const Navbar = () => {
     setServicesDropdownOpen(false);
   }, [location]);
 
+  // Close mobile menu when clicking outside
   useEffect(() => {
     const handleClickOutside = (event) => {
-      if (dropdownRef.current && !dropdownRef.current.contains(event.target)) {
+      if (mobileMenuRef.current && !mobileMenuRef.current.contains(event.target)) {
+        setIsOpen(false);
         setServicesDropdownOpen(false);
       }
     };
@@ -69,15 +69,12 @@ const Navbar = () => {
   return (
     <nav className={`fixed w-full top-6 z-50 transition-all duration-300 px-6`}>
       <div className="max-w-7xl mx-auto flex justify-between items-center relative">
-        {/* Logo - left side */}
+        {/* Logo */}
         <Link to="/" className="flex items-center z-10">
           <img
             src="/logo.jpg"
             alt="Kaktus Resources"
-            className={`h-12 w-auto transition-all duration-300 ${isScrolled
-                ? 'opacity-100'
-                : 'opacity-90'
-              }`}
+            className={`h-12 w-auto transition-all duration-300 ${isScrolled ? 'opacity-100' : 'opacity-90'}`}
             style={{
               ...(!isScrolled && {
                 backgroundColor: 'rgba(255, 255, 255, 0.2)',
@@ -91,20 +88,16 @@ const Navbar = () => {
               e.target.nextSibling.style.display = 'block';
             }}
           />
-          <span
-            className={`text-2xl font-bold ml-2 hidden ${isScrolled ? 'text-[#0A5F3C]' : 'text-white'
-              }`}
-          >
+          <span className={`text-2xl font-bold ml-2 hidden ${isScrolled ? 'text-[#0A5F3C]' : 'text-white'}`}>
             Kaktus Resources
           </span>
         </Link>
 
-        {/* Desktop Navigation - hidden on mobile */}
+        {/* Desktop Navigation */}
         <div className="hidden md:block absolute left-1/2 transform -translate-x-1/2">
-          <div className={`inline-flex rounded-full transition-all duration-300 overflow-visible ${isScrolled
-              ? 'bg-white shadow-lg'
-              : 'bg-white/10 backdrop-blur-md border border-white/20'
-            }`}>
+          <div className={`inline-flex rounded-full transition-all duration-300 overflow-visible ${
+            isScrolled ? 'bg-white shadow-lg' : 'bg-white/10 backdrop-blur-md border border-white/20'
+          }`}>
             {navLinks.map((link, index) => (
               <div 
                 key={link.name} 
@@ -129,9 +122,7 @@ const Navbar = () => {
                       <span>{link.name}</span>
                       <svg 
                         className={`w-4 h-4 transition-transform duration-300 ${servicesDropdownOpen ? 'rotate-180' : ''}`} 
-                        fill="none" 
-                        stroke="currentColor" 
-                        viewBox="0 0 24 24"
+                        fill="none" stroke="currentColor" viewBox="0 0 24 24"
                       >
                         <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M19 9l-7 7-7-7" />
                       </svg>
@@ -139,14 +130,14 @@ const Navbar = () => {
 
                     {servicesDropdownOpen && (
                       <div 
-                        className={`absolute top-full left-1/2 transform -translate-x-1/2 mt-2 w-56 rounded-xl overflow-hidden shadow-xl
-                          ${isScrolled 
+                        className={`absolute top-full left-1/2 transform -translate-x-1/2 mt-2 w-64 min-w-max rounded-xl overflow-hidden shadow-xl z-50 ${
+                          isScrolled 
                             ? 'bg-white border border-gray-200' 
                             : 'bg-white/10 backdrop-blur-md border border-white/20'
-                          }`}
+                        }`}
                       >
                         <div className="py-2">
-                          {serviceItems.map((service, idx) => (
+                          {serviceItems.map((service) => (
                             <Link
                               key={service.name}
                               to={service.path}
@@ -154,11 +145,11 @@ const Navbar = () => {
                                 setActiveLink('Services');
                                 setServicesDropdownOpen(false);
                               }}
-                              className={`block px-4 py-2.5 text-sm transition-all duration-300
-                                ${isScrolled
+                              className={`block px-4 py-2.5 text-sm transition-all duration-300 ${
+                                isScrolled
                                   ? 'text-gray-700 hover:bg-[#0A5F3C]/10 hover:text-[#0A5F3C]'
                                   : 'text-white/90 hover:bg-white/20 hover:text-white'
-                                }`}
+                              }`}
                             >
                               {service.name}
                             </Link>
@@ -189,7 +180,7 @@ const Navbar = () => {
           </div>
         </div>
 
-        {/* Mobile menu button - visible only on mobile */}
+        {/* Mobile menu button */}
         <button
           className={`md:hidden transition-colors duration-300 z-10 ${isScrolled ? 'text-[#0A5F3C]' : 'text-white'}`}
           onClick={() => setIsOpen(!isOpen)}
@@ -202,7 +193,7 @@ const Navbar = () => {
 
       {/* Mobile Menu */}
       {isOpen && (
-        <div className="md:hidden max-w-7xl mx-auto mt-4">
+        <div className="md:hidden max-w-7xl mx-auto mt-4" ref={mobileMenuRef}>
           <div className={`rounded-2xl overflow-hidden transition-colors duration-300 ${
             isScrolled ? 'bg-white border border-gray-200 shadow-lg' : 'bg-black/80 backdrop-blur-sm'
           }`}>
@@ -227,9 +218,7 @@ const Navbar = () => {
                         <span>{link.name}</span>
                         <svg 
                           className={`w-4 h-4 transition-transform duration-300 ${servicesDropdownOpen ? 'rotate-180' : ''}`} 
-                          fill="none" 
-                          stroke="currentColor" 
-                          viewBox="0 0 24 24"
+                          fill="none" stroke="currentColor" viewBox="0 0 24 24"
                         >
                           <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M19 9l-7 7-7-7" />
                         </svg>

@@ -240,7 +240,7 @@ const AgricultureEstate = () => {
             </div>
 
             {/* Custom Animations */}
-            <style jsx>{`
+            <style>{`
                 @keyframes fade-in-up {
                     from {
                         opacity: 0;
