@@ -28,59 +28,51 @@ const About = () => {
         return () => observer.disconnect();
     }, []);
 
-    // Board Members Data (8 members as requested)
+    // Board Members Data (expertise removed)
     const boardMembers = [
         { 
             name: "Prof. David Abdulai", 
             title: "Chairman",
-            initial: "D",
-            expertise: "Strategic Leadership & Governance"
+            initial: "D"
         },
         { 
             name: "Dr. Emmanuel Abeere'inga", 
             title: "NDA CEO",
-            initial: "E",
-            expertise: "Executive Management & Operations"
+            initial: "E"
         },
         { 
             name: "Eng. Thompson Adongo", 
             title: "KR CEO",
-            initial: "T",
-            expertise: "Engineering & Technical Strategy"
+            initial: "T"
         },
         { 
             name: "Prof. N.A. Browne-Klutse", 
             title: "EPA CEO",
-            initial: "N",
-            expertise: "Environmental Policy & Regulation"
+            initial: "N"
         },
         { 
             name: "Samson Lardi Angenini", 
             title: "Legal Practitioner",
-            initial: "S",
-            expertise: "Corporate & Construction Law"
+            initial: "S"
         },
         { 
             name: "Dr. Abu Sakara Foster", 
             title: "Board Member",
-            initial: "A",
-            expertise: "Agricultural Development & Policy"
+            initial: "A"
         },
         { 
             name: "Dr. Charles Abugre", 
             title: "ISODEC Founder",
-            initial: "C",
-            expertise: "Social Development & Advocacy"
+            initial: "C"
         },
         { 
             name: "Anaama Mwinbisiana Esq.", 
             title: "Legal Practitioner (Board Secretary)",
-            initial: "A",
-            expertise: "Legal Advisory & Corporate Governance"
+            initial: "A"
         }
     ];
 
-    // Company Facts Data (updated per feedback)
+    // Company Facts Data (unchanged)
     const companyFacts = [
         {
             label: "Company Name",
@@ -335,7 +327,7 @@ const About = () => {
                                     </div>
                                     <h3 className="text-xl font-bold text-[#0A5F3C] mb-1">{member.name}</h3>
                                     <p className="text-[#FFB347] font-semibold mb-2">{member.title}</p>
-                                    <p className="text-gray-600 text-sm">{member.expertise}</p>
+                                    {/* Expertise line removed */}
                                     <div className="w-12 h-1 bg-[#FFB347]/30 mx-auto mt-4 rounded-full 
                                                   group-hover:w-16 group-hover:bg-[#FFB347] transition-all duration-300" />
                                 </div>

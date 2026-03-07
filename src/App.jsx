@@ -14,10 +14,12 @@ import WasteManagement from './dropdown/WasteManagement';
 import IctInfrastructure from './dropdown/IctInfrastructure';
 import AgricultureEstate from './dropdown/AgricultureEstate';
 import Footer from './components/Footer';
+import ScrollToTop from './components/ScrollToTop'; // <-- import the component
 
 function App() {
   return (
     <Router>
+      <ScrollToTop /> {/* <-- add it here, right inside Router */}
       <div className="min-h-screen bg-white">
         <Navbar />
         <main>
