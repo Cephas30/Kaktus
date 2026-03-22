@@ -219,8 +219,8 @@ const About = () => {
                             </div>
                         </div>
 
-                        {/* Company Description */}
-                        <div className="space-y-6 text-gray-700 text-lg leading-relaxed bg-white rounded-2xl p-8 shadow-lg">
+                        {/* Company Description - text-justify added */}
+                        <div className="space-y-6 text-gray-700 text-lg leading-relaxed bg-white rounded-2xl p-8 shadow-lg text-justify">
                             <p>
                                 <span className="text-[#FFB347] font-bold text-xl">KAKTUS RESOURCES</span> has in a decade developed treasured experience in construction nationally; with a reputation for delivering large, custom made and unique design-build projects ahead of schedule and on budget.
                             </p>
@@ -289,13 +289,13 @@ const About = () => {
                 </div>
             </div>
 
-            {/* ================= BOARD OF DIRECTORS SECTION ================= */}
+            {/* ================= BOARD OF DIRECTORS SECTION - COMMENTED OUT ================= */}
+            {/*
             <div data-section="leadership" className="py-16 md:py-20 bg-[#F5F5DC]">
                 <div className="container mx-auto px-6">
                     <div className={`max-w-6xl mx-auto transition-all duration-1000
                           ${inView.leadership ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-10'}`}>
                         
-                        {/* Section Title */}
                         <div className="text-center mb-12">
                             <h2 className="text-3xl md:text-4xl font-bold text-[#0A5F3C] mb-4 inline-block relative
                                 after:content-[''] after:absolute after:-bottom-3 after:left-1/2 
@@ -308,7 +308,6 @@ const About = () => {
                             </p>
                         </div>
 
-                        {/* Board Members Grid */}
                         <div className="grid md:grid-cols-2 lg:grid-cols-4 gap-8">
                             {boardMembers.map((member, index) => (
                                 <div
@@ -327,7 +326,6 @@ const About = () => {
                                     </div>
                                     <h3 className="text-xl font-bold text-[#0A5F3C] mb-1">{member.name}</h3>
                                     <p className="text-[#FFB347] font-semibold mb-2">{member.title}</p>
-                                    {/* Expertise line removed */}
                                     <div className="w-12 h-1 bg-[#FFB347]/30 mx-auto mt-4 rounded-full 
                                                   group-hover:w-16 group-hover:bg-[#FFB347] transition-all duration-300" />
                                 </div>
@@ -336,6 +334,7 @@ const About = () => {
                     </div>
                 </div>
             </div>
+            */}
 
             {/* ================= STATS SECTION ================= */}
             <div className="py-16 md:py-20 bg-gradient-to-br from-[#0A5F3C] to-[#0A5F3C]/90 relative overflow-hidden">

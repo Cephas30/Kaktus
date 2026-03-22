@@ -307,7 +307,8 @@ const Home = () => {
                             <h2 className="text-3xl md:text-4xl font-bold text-[#0A5F3C] mb-6 relative after:content-[''] after:absolute after:-bottom-3 after:left-0 after:w-20 after:h-1 after:bg-[#FFB347] after:rounded-full after:animate-pulse-slow">
                                 Building Excellence Since Inception
                             </h2>
-                            <div className="space-y-4 text-gray-700 text-lg leading-relaxed mb-6">
+                            {/* Added text-justify to this container */}
+                            <div className="space-y-4 text-gray-700 text-lg leading-relaxed mb-6 text-justify">
                                 <p><span className="text-[#FFB347] font-semibold">KAKTUS RESOURCES</span> has in a decade developed treasured experience in construction nationally; with a reputation for delivering large, custom made and unique design-build projects ahead of schedule and on budget.</p>
                                 <p>We have served various clientele and building owners through our period of existence. We have strived to exceed the needs and expectations of our clients and committed to quality, sustainability and safety which have always paid off in the success of our projects.</p>
                                 <p>KR provides excellence in the full spectrum of pre-construction, project management, design development, construction, demolishing, modification, inspection and quality control services. KR continues to be the nexus of first class building services by employing and placing experienced professionals and cutting edge technologies on every project we undertake.</p>
