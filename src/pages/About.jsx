@@ -72,7 +72,7 @@ const About = () => {
         }
     ];
 
-    // Company Facts Data (unchanged)
+    // Company Facts Data - Main Shareholders entry is commented out
     const companyFacts = [
         {
             label: "Company Name",
@@ -92,23 +92,25 @@ const About = () => {
                 </svg>
             )
         },
-        {
-            label: "Main Shareholders",
-            value: (
-                <div className="space-y-1">
-                    <div>AAT</div>
-                    <div>JT</div>
-                    <div>AAP</div>
-                    <div>WAA KAA</div>
-                    <div>PNA</div>
-                </div>
-            ),
-            icon: (
-                <svg className="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                    <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M12 4.354a4 4 0 110 5.292M15 21H3v-1a6 6 0 0112 0v1zm0 0h6v-1a6 6 0 00-9-5.197M13 7a4 4 0 11-8 0 4 4 0 018 0z" />
-                </svg>
-            )
-        },
+        // ========= MAIN SHAREHOLDERS SECTION - COMMENTED OUT =========
+        // {
+        //     label: "Main Shareholders",
+        //     value: (
+        //         <div className="space-y-1">
+        //             <div>AAT</div>
+        //             <div>JT</div>
+        //             <div>AAP</div>
+        //             <div>WAA KAA</div>
+        //             <div>PNA</div>
+        //         </div>
+        //     ),
+        //     icon: (
+        //         <svg className="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+        //             <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M12 4.354a4 4 0 110 5.292M15 21H3v-1a6 6 0 0112 0v1zm0 0h6v-1a6 6 0 00-9-5.197M13 7a4 4 0 11-8 0 4 4 0 018 0z" />
+        //         </svg>
+        //     )
+        // },
+        // ==============================================================
         {
             label: "Telephone",
             value: (
@@ -257,7 +259,7 @@ const About = () => {
                             </p>
                         </div>
 
-                        {/* Company Facts Grid - 7 cards */}
+                        {/* Company Facts Grid - now 6 cards (Main Shareholders removed) */}
                         <div className="grid md:grid-cols-2 lg:grid-cols-4 gap-6">
                             {companyFacts.map((fact, index) => (
                                 <div
